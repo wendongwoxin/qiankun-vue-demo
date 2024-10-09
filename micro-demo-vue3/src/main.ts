@@ -7,11 +7,11 @@ import { renderWithQiankun, qiankunWindow, type QiankunProps } from 'vite-plugin
 import actions from './qiankun/action'
 let app: App<Element>
 const render = (props?: QiankunProps) => {
-  if (!props) return
-  const { container } = props
+  // if (!props) return
+  // const { container } = props
   actions.setActions(props as any);
   app = createApp(_App)
-  app.use(router).mount(container ? (container.querySelector('#app') ?? '#app') : '#app')
+  app.use(router).mount(props ? (props.container?.querySelector('#app') ?? '#app') : '#app')
 }
 
 const initQianKun = () => {
